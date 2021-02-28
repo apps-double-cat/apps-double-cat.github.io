@@ -1,60 +1,86 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Laravel shopify documentation</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="icon" href="src/images/logo.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="src/vendors/bootstrap-5.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="src/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <script src="src/vendors/bootstrap-5.0.0/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center fw-bold text-white fst-italic">Laravel shopify</h1>
-            <p class="text-center">
-                <i class="fab fa-laravel fa-3x text-danger"></i>
-                <i class="fab fa-shopify fa-3x text-success"></i>
-            </p>
+    <div class="container mt-5">
+        <h1 class="fw-bold brand-color fst-italic mt-5 mb-4">Laravel shopify</h1>
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" role="tab" data-bs-toggle="pill" data-bs-target="#installation">
+                    Installation
+                </button>
+                <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#api">
+                    API
+                </button>
+                <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#notes">
+                    Important
+                </button>
+                <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#support">
+                    Support
+                </button>
+            </div>
+            <div class="container tab-content my-5">
+                <div class="tab-pane fade show active" id="installation">
+                    <h1 class="text-center">Installation steps</h1>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Config shopify app</h5>
+                            <small>Config app url and white list url for your app</small>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>App url: <code>https://{your-doamin}/shopify-install</code></li>
+                                <li>Allowed redirection URL(s): <code>https://{your-doamin}/authorize</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card mt-5">
+                        <div class="card-header">
+                            <h5>Packages install</h5>
+                            <small>Install package to your laravel app</small>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Add require package to composer.json file: <code>appsdoublec/laravel-shopify: "package-version"</code></li>
+                                <li>Add source package to repositories:</li>
+                            </ul>
+                            <pre class="code-block mt-3"><code>"repositories": [<br>    { <br>        "type": "git",<br>        "url": "git@github.com:appsdoublec/laravel-shopify.git"<br>    }<br>]</code></pre>
+                            <ul>
+                                <li>Run <code>composer install</code> or <code>composer update</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="api">
+                    <h1 class="text-center">Framework API</h1>
+                </div>
+                
+                <div class="tab-pane" id="notes">
+                    <h1 class="text-center">Important</h1>
+                </div>
+
+                <div class="tab-pane" id="support">
+                    <h1 class="text-center">Support</h1>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="d-flex align-items-start">
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
-                    type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                Installation
-            </button>
-            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
-                    type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile
-            </button>
-            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
-                    data-bs-target="#v-pills-messages"
-                    type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages
-            </button>
-            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
-                    data-bs-target="#v-pills-settings"
-                    type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings
-            </button>
-        </div>
-        <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                ...
-            </div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...
-            </div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
-            </div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...
-            </div>
-        </div>
-    </div>
-</div>
 </body>
+
 </html>

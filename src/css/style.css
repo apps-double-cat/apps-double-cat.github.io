@@ -1,11 +1,43 @@
 body {
-    background-color: #004c3f;
+  background-color: #1a202c;
 }
 
-.shopify-color {
-    color: #004c3f;
+.brand-color {
+  color: #7efff5;
 }
 
 button {
+  border-radius: 0 !important;
+}
+.nav-link {
+  text-transform: uppercase;
+}
+.nav[role="tablist"] {
+  border-right: 1px solid #2a3038;
+  padding-right: 10px;
+}
+.nav-pills .nav-link.active {
+  background-color: #2a3038;
+  color: #5efff5;
+}
+.tab-pane {
+  font-family: "Cabin", sans-serif;
+  color: rgb(221, 213, 213);
+}
+.card {
+    border-radius: 0;
+    border-color: #2a3038;;
+}
+.card-header, .card-body {
     border-radius: 0 !important;
+    background-color: #2a3038;
+    color: #adafae;
+}
+.code-block{
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #1a202c;
+    border-radius: 6px;
 }
