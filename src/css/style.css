@@ -1,0 +1,11 @@
+body {
+    background-color: #004c3f;
+}
+
+.shopify-color {
+    color: #004c3f;
+}
+
+button {
+    border-radius: 0 !important;
+}
