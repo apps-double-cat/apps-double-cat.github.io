@@ -1,43 +1,72 @@
 body {
-  background-color: #1a202c;
-}
-
-.brand-color {
-  color: #7efff5;
+    background-color: #1a202c;
 }
 
 button {
-  border-radius: 0 !important;
+    border-radius: 0 !important;
 }
+
+a {
+    color: #e2e2e2;
+}
+
+.brand-color {
+    color: #7efff5;
+}
+
 .nav-link {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
+
 .nav[role="tablist"] {
-  border-right: 1px solid #2a3038;
-  padding-right: 10px;
+    padding-right: 10px;
 }
+
 .nav-pills .nav-link.active {
-  background-color: #2a3038;
-  color: #5efff5;
+    background-color: #2a3038;
+    color: #5efff5;
 }
+
+.tab-content {
+    border-left: 1px solid #2a3038;
+}
+
 .tab-pane {
-  font-family: "Cabin", sans-serif;
-  color: rgb(221, 213, 213);
+    font-family: "Cabin", sans-serif;
+    color: rgb(221, 213, 213);
 }
+
 .card {
     border-radius: 0;
     border-color: #2a3038;;
 }
-.card-header, .card-body {
+
+.card-header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.card-header, .card-body, .card-footer {
     border-radius: 0 !important;
     background-color: #2a3038;
     color: #adafae;
 }
-.code-block{
+
+.command-block {
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #f0f6fc26;
+    color: #71ce7c;
+    border-radius: 6px;
+}
+
+.code-block {
     padding: 16px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
     background-color: #1a202c;
     border-radius: 6px;
+    color: #d63384;
 }

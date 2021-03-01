@@ -6,7 +6,7 @@
     <title>Laravel shopify documentation</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="icon" href="src/images/logo.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="src/vendors/bootstrap-5.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/vendors/fontawesome/css/all.min.css">
@@ -16,71 +16,146 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="fw-bold brand-color fst-italic mt-5 mb-4">Laravel shopify</h1>
-        <div class="d-flex align-items-start">
-            <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                <button class="nav-link active" role="tab" data-bs-toggle="pill" data-bs-target="#installation">
-                    Installation
-                </button>
-                <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#api">
-                    API
-                </button>
-                <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#notes">
-                    Important
-                </button>
-                <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#support">
-                    Support
-                </button>
-            </div>
-            <div class="container tab-content my-5">
-                <div class="tab-pane fade show active" id="installation">
-                    <h1 class="text-center">Installation steps</h1>
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Config shopify app</h5>
-                            <small>Config app url and white list url for your app</small>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>App url: <code>https://{your-doamin}/shopify-install</code></li>
-                                <li>Allowed redirection URL(s): <code>https://{your-doamin}/authorize</code></li>
-                            </ul>
-                        </div>
+<div class="container mt-5">
+    <h1 class="fw-bold brand-color fst-italic mt-5 mb-4">Laravel shopify</h1>
+    <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active" role="tab" data-bs-toggle="pill" data-bs-target="#installation">
+                Installation
+            </button>
+            <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#api">
+                API
+            </button>
+            <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#notes">
+                Important
+            </button>
+            <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#support">
+                Support
+            </button>
+        </div>
+        <div class="container tab-content py-5">
+
+            <div class="tab-pane fade show active" id="installation">
+                <h1 class="text-center mb-5">Installation steps</h1>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fab fa-shopify"></i>
+                            Config shopify app
+                        </h5>
+                        <small>Config app url and white list url for your app</small>
                     </div>
-                    <div class="card mt-5">
-                        <div class="card-header">
-                            <h5>Packages install</h5>
-                            <small>Install package to your laravel app</small>
-                        </div>
-                        <div class="card-body">
-                            <ul>
-                                <li>Add require package to composer.json file: <code>appsdoublec/laravel-shopify: "package-version"</code></li>
-                                <li>Add source package to repositories:</li>
-                            </ul>
-                            <pre class="code-block mt-3"><code>"repositories": [<br>    { <br>        "type": "git",<br>        "url": "git@github.com:appsdoublec/laravel-shopify.git"<br>    }<br>]</code></pre>
-                            <ul>
-                                <li>Run <code>composer install</code> or <code>composer update</code></li>
-                            </ul>
-                        </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>App url: <code>https://{your-doamin}/shopify-install</code></li>
+                            <li>Allowed redirection URL(s): <code>https://{your-doamin}/authorize</code></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="tab-pane" id="api">
-                    <h1 class="text-center">Framework API</h1>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-download"></i>
+                            Packages install
+                        </h5>
+                        <small>Install package to your laravel app</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Add require package to composer.json file: <code>appsdoublec/laravel-shopify:
+                                "package-version"</code></li>
+                            <li>Add source package to repositories:</li>
+                        </ul>
+                        <pre class="code-block mt-3"><code>"repositories": [<br>    { <br>        "type": "git",<br>        "url": "git@github.com:appsdoublec/laravel-shopify.git"<br>    }<br>]</code></pre>
+                        <ul>
+                            <li>Run <code class="command-block">composer install</code> or <code class="command-block">composer
+                                update</code></li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="tab-pane" id="notes">
-                    <h1 class="text-center">Important</h1>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-wrench"></i>
+                            Package configuration
+                        </h5>
+                        <small>Config your project to integration with owen package</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                Copy your <code>API key</code> and <code>API secret key</code> from <a
+                                    href="https://www.shopify.com/partners" target="_blank">shopify partner</a>
+                            </li>
+                            <li>
+                                Modified <code>.env</code> file in project:
+                            </li>
+                        </ul>
+                        <pre class="code-block">APP_NAME="My Shopify App Name" <br>APP_URL="https://{your-domain}" <br>SHOPIFY_API_KEY=API_KEY_FORM_SHOPIFY_PARTNER <br>SHOPIFY_SHARED_SECRET=SECRET_KEY_FORM_SHOPIFY_PARTNER <br>SHOPIFY_REDIRECT_URL="${APP_URL}/authorize" <br>SHOPIFY_PERMISSIONS=read_themes,write_themes, ... (Scope List Eg: read_products,write_products | 2 Themes scope required)</pre>
+                        <ul>
+                            <li>
+                                Run command clear config <code class="command-block">php artisan config:clear</code>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-header">
+                        <h5>Publish configs and resource</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Add package to providers array on file <code>config/app.php</code></li>
+                        </ul>
+                        <pre class="code-block">\DoubleC\LaravelShopify\LaravelShopifyServiceProvider::class</pre>
+                        <ul>
+                            <li>
+                                Run command to publish configs and resource:
+                            </li>
+                            <li>
+                                <code class="command-block">
+                                    php artisan vendor:publish
+                                    --provider="DoubleC\LaravelShopify\LaravelShopifyServiceProvider" --force
+                                </code>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-header">
+                        <h5>Database config</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Config | create your database connection in <code>.env</code> file</li>
+                            <li class="mb-2">
+                                <p>Delete files:</p>
+                                <ul>
+                                    <li>All file in: <code>database/migrations</code></li>
+                                    <li>Model user in: <code>app/Models/User.php</code></li>
+                                </ul>
+                            </li>
+                            <li>Update config <code>config/auth.php</code></li>
+                        </ul>
+                        <pre class="code-block">'users' => [ <br>    'driver' => 'eloquent', <br>    'model' => \DoubleC\LaravelShopify\Models\User::class, <br>]</pre>
+                        <ul>
+                            <li>Run migration <code class="command-block">php artisan migrate</code></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="tab-pane" id="support">
-                    <h1 class="text-center">Support</h1>
-                </div>
-
             </div>
+
+            <div class="tab-pane" id="api">
+                <h1 class="text-center">Framework API</h1>
+            </div>
+
+            <div class="tab-pane" id="notes">
+                <h1 class="text-center">Important</h1>
+            </div>
+
+            <div class="tab-pane" id="support">
+                <h1 class="text-center">Support</h1>
+            </div>
+
         </div>
     </div>
+</div>
 </body>
 
 </html>
