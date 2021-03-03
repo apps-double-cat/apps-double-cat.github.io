@@ -10,6 +10,21 @@ a {
     color: #e2e2e2;
 }
 
+body::-webkit-scrollbar {
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #2a3038;
+    outline: 1px solid slategrey;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #0000004d;
+    border-radius: 10px;
+}
+
 .brand-color {
     color: #7efff5;
 }

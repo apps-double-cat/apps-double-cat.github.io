@@ -34,7 +34,6 @@
             </button>
         </div>
         <div class="container tab-content py-5">
-
             <div class="tab-pane fade show active" id="installation">
                 <h1 class="text-center mb-5">Installation steps</h1>
                 <div class="card">
@@ -47,8 +46,8 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>App url: <code>https://{your-doamin}/shopify-install</code></li>
-                            <li>Allowed redirection URL(s): <code>https://{your-doamin}/authorize</code></li>
+                            <li>App url: <code>https://{your-domain}/shopify-install</code></li>
+                            <li>Allowed redirection URL(s): <code>https://{your-domain}/authorize</code></li>
                         </ul>
                     </div>
                 </div>
@@ -142,7 +141,94 @@
             </div>
 
             <div class="tab-pane" id="api">
-                <h1 class="text-center">Framework API</h1>
+                <h1 class="text-center mb-5">Framework API</h1>
+                <h5>Laravel-Shopify framework have several APIs for application development:</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-briefcase"></i>
+                            Trait
+                        </h5>
+                        <small>Quick access to the methods of the shop installed the app</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <code class="command-block">InstalledShop</code>
+                                <ul>
+                                    <li><code>shopId()</code> get the shop id of the shop has logged in</li>
+                                    <li><code>clientApi()</code> get request client</li>
+                                    <li><code>shop()</code> get shop model of the shop has logged in</li>
+                                    <li>
+                                        <code>shopPlan()</code> get latest subscription plan of the shop has logged in
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="command-block">More....</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fab fa-hire-a-helper"></i>
+                            Helpers
+                        </h5>
+                        <small>Quick access to methods with the helper</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li class="mb-1">
+                                <code>isValidDomain(string $domain)</code>
+                                - return true if string is valid shopify domain
+                            </li>
+                            <li class="mb-1">
+                                <code>shopNameFromDomain(string $domain)</code>
+                                - Extract shop name from shopify domain
+                            </li>
+                            <li class="mb-1">
+                                <code>domainFromShopName(string $shop_name)</code>
+                                - return shopify domain from shop name
+                            </li>
+                            <li class="mb-1">
+                                <code>isValidWebhookRequest(Request $request)</code>
+                                - Check is valid request webhook is from shopify
+                            </li>
+                            <li class="mb-1">
+                                <code>generateClientApi(Shop $shop)</code>
+                                - Generate client api to call resource
+                            </li>
+                            <li class="mb-1">
+                                <code>setting(string|array $key, mixed $default = null)</code>
+                                - Get/Set setting for current shop
+                                <ul class="mt-3">
+                                    <li class="mb-2">
+                                        If key is string, value of this key will be returned. $default value will be
+                                        returned if setting key not exists
+                                    </li>
+                                    <li class="mb-2">
+                                        If key is array, Value pairs will be updated or added new. Ex:<br>
+                                        <pre class="code-block">setting([ "foor" => "bar", "is_rated" => true ])</pre>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mb-1">
+                                <code>shopSetting(int $shop_id, array|string $keys, mixed $default = null)</code>
+                                - The function of this method is similar to the setting() method, But you need to add
+                                the shop_id parameter
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-bell"></i>
+                            App events
+                        </h5>
+                        <small>Listen to app events and shop changes</small>
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane" id="notes">
