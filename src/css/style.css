@@ -30,7 +30,9 @@ body::-webkit-scrollbar-track {
 }
 
 .nav-link {
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
+    text-align: left;
+    width: max-content;
 }
 
 .nav[role="tablist"] {

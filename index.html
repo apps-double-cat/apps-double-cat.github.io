@@ -19,7 +19,12 @@
 <div class="container mt-5">
     <h1 class="fw-bold brand-color fst-italic mt-5 mb-4">Laravel shopify</h1>
     <div class="d-flex align-items-start">
+
         <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+            <p class="brand-color">
+                <i class="fab fa-laravel text-danger"></i>
+                Framework
+            </p>
             <button class="nav-link active" role="tab" data-bs-toggle="pill" data-bs-target="#installation">
                 Installation
             </button>
@@ -29,11 +34,18 @@
             <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#notes">
                 Important
             </button>
+            <hr class="bg-white">
+            <p class="brand-color">
+                <i class="fab fa-shopify text-success"></i>
+                Shopify
+            </p>
             <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#support">
-                Support
+                Customer Support
             </button>
         </div>
+
         <div class="container tab-content py-5">
+
             <div class="tab-pane fade show active" id="installation">
                 <h1 class="text-center mb-5">Installation steps</h1>
                 <div class="card">
@@ -228,11 +240,95 @@
                         </h5>
                         <small>Listen to app events and shop changes</small>
                     </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <code class="command-block">DoubleC\LaravelShopify\Events\AppInstalledEvent</code>
+                                - The event will be called when the user completes the application installation.
+                                <p class="mt-3"></p>
+                                <ul>
+                                    <li>
+                                        <code>shop()</code>
+                                        - return the shop model.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code class="command-block">DoubleC\LaravelShopify\Events\AppUninstalledEvent</code>
+                                - The event will be called when the user uninstall app.
+                                <p class="mt-3"></p>
+                                <ul>
+                                    <li>
+                                        <code>shop()</code>
+                                        - return the shop model.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="command-block">More event...</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-shield-alt"></i>
+                            Middleware
+                        </h5>
+                        <small>Protect your routes</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <code>double-c-shop-auth</code>
+                                - Check shop is logged
+                            </li>
+                            <li>
+                                <code>double-c-shopify-request</code>
+                                - Check is valid request from shopify
+                            </li>
+                            <li>
+                                <code>double-c-activate-shop</code>
+                                - Check shop not uninstall & have not deactivated (subscription)
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="tab-pane" id="notes">
                 <h1 class="text-center">Important</h1>
+                <h5 class="text-center my-5">
+                    While developing your application, there are some important notes you need to know.
+                </h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>GDPR policy (EU General Data Protection Regulation)</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            This policy will require you not to unauthorized use of user's personal information for
+                            other purposes of the application (In the EU region). After users no longer install apps,
+                            you have to keep old information secure or to be safe, you must remove their personal
+                            information from the list.
+                        </p>
+                        <a target="_blank"
+                           href="https://www.microsoft.com/vi-vn/microsoft-365/business-insights-ideas/resources/5-things-to-know-about-gdpr-before-its-too-late">
+                            View article
+                        </a>
+                        or
+                        <a target="_blank"
+                           href="https://vi.wikipedia.org/wiki/Quy_%C4%91%E1%BB%8Bnh_b%E1%BA%A3o_v%E1%BB%87_d%E1%BB%AF_li%E1%BB%87u_chung">
+                            View in wikipedia
+                        </a>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>Data protection</h5>
+                    </div>
+                    <div class="card-body">
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane" id="support">
