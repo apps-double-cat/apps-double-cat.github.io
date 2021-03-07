@@ -127,6 +127,21 @@
                                     --provider="DoubleC\LaravelShopify\LaravelShopifyServiceProvider" --force
                                 </code>
                             </li>
+                            <li>
+                                Set app type in <code>config/shopify.php</code>
+                                <p class="my-2"># App paid <code>1</code>, Free available <code>0</code></p>
+                                <ul>
+                                    <li>
+                                        If <code>1</code> When users install the application will be redirected to the
+                                        price list
+                                        page
+                                    </li>
+                                    <li>
+                                        If <code>0</code> User will be offered the default free version in config
+                                        (<code>default_plan_id</code>)
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <div class="card-header">
@@ -261,6 +276,17 @@
                                     <li>
                                         <code>shop()</code>
                                         - return the shop model.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code class="command-block">DoubleC\LaravelShopify\Events\AppThemeInfoFetched</code>
+                                - The event will be called when theme fetched
+                                <p class="mt-3"></p>
+                                <ul>
+                                    <li>
+                                        <code>theme(): ?array</code>
+                                        - return current theme info | null
                                     </li>
                                 </ul>
                             </li>
