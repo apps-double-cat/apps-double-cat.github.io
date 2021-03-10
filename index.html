@@ -19,7 +19,12 @@
 <div class="container mt-5">
     <h1 class="fw-bold brand-color fst-italic mt-5 mb-4">Laravel shopify</h1>
     <div class="d-flex align-items-start">
+
         <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+            <p class="brand-color">
+                <i class="fab fa-laravel text-danger"></i>
+                Framework
+            </p>
             <button class="nav-link active" role="tab" data-bs-toggle="pill" data-bs-target="#installation">
                 Installation
             </button>
@@ -29,10 +34,16 @@
             <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#notes">
                 Important
             </button>
+            <hr class="bg-white">
+            <p class="brand-color">
+                <i class="fab fa-shopify text-success"></i>
+                Shopify
+            </p>
             <button class="nav-link" role="tab" data-bs-toggle="pill" data-bs-target="#support">
-                Support
+                Customer Support
             </button>
         </div>
+
         <div class="container tab-content py-5">
 
             <div class="tab-pane fade show active" id="installation">
@@ -47,8 +58,8 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>App url: <code>https://{your-doamin}/shopify-install</code></li>
-                            <li>Allowed redirection URL(s): <code>https://{your-doamin}/authorize</code></li>
+                            <li>App url: <code>https://{your-domain}/shopify-install</code></li>
+                            <li>Allowed redirection URL(s): <code>https://{your-domain}/authorize</code></li>
                         </ul>
                     </div>
                 </div>
@@ -116,6 +127,21 @@
                                     --provider="DoubleC\LaravelShopify\LaravelShopifyServiceProvider" --force
                                 </code>
                             </li>
+                            <li>
+                                Set app type in <code>config/shopify.php</code>
+                                <p class="my-2"># App paid <code>1</code>, Free available <code>0</code></p>
+                                <ul>
+                                    <li>
+                                        If <code>1</code> When users install the application will be redirected to the
+                                        price list
+                                        page
+                                    </li>
+                                    <li>
+                                        If <code>0</code> User will be offered the default free version in config
+                                        (<code>default_plan_id</code>)
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <div class="card-header">
@@ -142,11 +168,193 @@
             </div>
 
             <div class="tab-pane" id="api">
-                <h1 class="text-center">Framework API</h1>
+                <h1 class="text-center mb-5">Framework API</h1>
+                <h5>Laravel-Shopify framework have several APIs for application development:</h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-briefcase"></i>
+                            Trait
+                        </h5>
+                        <small>Quick access to the methods of the shop installed the app</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <code class="command-block">InstalledShop</code>
+                                <ul>
+                                    <li><code>shopId()</code> get the shop id of the shop has logged in</li>
+                                    <li><code>clientApi()</code> get request client</li>
+                                    <li><code>shop()</code> get shop model of the shop has logged in</li>
+                                    <li>
+                                        <code>shopPlan()</code> get latest subscription plan of the shop has logged in
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="command-block">More....</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fab fa-hire-a-helper"></i>
+                            Helpers
+                        </h5>
+                        <small>Quick access to methods with the helper</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li class="mb-1">
+                                <code>isValidDomain(string $domain)</code>
+                                - return true if string is valid shopify domain
+                            </li>
+                            <li class="mb-1">
+                                <code>shopNameFromDomain(string $domain)</code>
+                                - Extract shop name from shopify domain
+                            </li>
+                            <li class="mb-1">
+                                <code>domainFromShopName(string $shop_name)</code>
+                                - return shopify domain from shop name
+                            </li>
+                            <li class="mb-1">
+                                <code>isValidWebhookRequest(Request $request)</code>
+                                - Check is valid request webhook is from shopify
+                            </li>
+                            <li class="mb-1">
+                                <code>generateClientApi(Shop $shop)</code>
+                                - Generate client api to call resource
+                            </li>
+                            <li class="mb-1">
+                                <code>setting(string|array $key, mixed $default = null)</code>
+                                - Get/Set setting for current shop
+                                <ul class="mt-3">
+                                    <li class="mb-2">
+                                        If key is string, value of this key will be returned. $default value will be
+                                        returned if setting key not exists
+                                    </li>
+                                    <li class="mb-2">
+                                        If key is array, Value pairs will be updated or added new. Ex:<br>
+                                        <pre class="code-block">setting([ "foor" => "bar", "is_rated" => true ])</pre>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mb-1">
+                                <code>shopSetting(int $shop_id, array|string $keys, mixed $default = null)</code>
+                                - The function of this method is similar to the setting() method, But you need to add
+                                the shop_id parameter
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-bell"></i>
+                            App events
+                        </h5>
+                        <small>Listen to app events and shop changes</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <code class="command-block">DoubleC\LaravelShopify\Events\AppInstalledEvent</code>
+                                - The event will be called when the user completes the application installation.
+                                <p class="mt-3"></p>
+                                <ul>
+                                    <li>
+                                        <code>shop()</code>
+                                        - return the shop model.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code class="command-block">DoubleC\LaravelShopify\Events\AppUninstalledEvent</code>
+                                - The event will be called when the user uninstall app.
+                                <p class="mt-3"></p>
+                                <ul>
+                                    <li>
+                                        <code>shop()</code>
+                                        - return the shop model.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code class="command-block">DoubleC\LaravelShopify\Events\AppThemeInfoFetched</code>
+                                - The event will be called when theme fetched
+                                <p class="mt-3"></p>
+                                <ul>
+                                    <li>
+                                        <code>theme(): ?array</code>
+                                        - return current theme info | null
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><code class="command-block">More event...</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>
+                            <i class="fas fa-shield-alt"></i>
+                            Middleware
+                        </h5>
+                        <small>Protect your routes</small>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <code>double-c-shop-auth</code>
+                                - Check shop is logged
+                            </li>
+                            <li>
+                                <code>double-c-shopify-request</code>
+                                - Check is valid request from shopify
+                            </li>
+                            <li>
+                                <code>double-c-activate-shop</code>
+                                - Check shop not uninstall & have not deactivated (subscription)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane" id="notes">
                 <h1 class="text-center">Important</h1>
+                <h5 class="text-center my-5">
+                    While developing your application, there are some important notes you need to know.
+                </h5>
+                <div class="card">
+                    <div class="card-header">
+                        <h5>GDPR policy (EU General Data Protection Regulation)</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            This policy will require you not to unauthorized use of user's personal information for
+                            other purposes of the application (In the EU region). After users no longer install apps,
+                            you have to keep old information secure or to be safe, you must remove their personal
+                            information from the list.
+                        </p>
+                        <a target="_blank"
+                           href="https://www.microsoft.com/vi-vn/microsoft-365/business-insights-ideas/resources/5-things-to-know-about-gdpr-before-its-too-late">
+                            View article
+                        </a>
+                        or
+                        <a target="_blank"
+                           href="https://vi.wikipedia.org/wiki/Quy_%C4%91%E1%BB%8Bnh_b%E1%BA%A3o_v%E1%BB%87_d%E1%BB%AF_li%E1%BB%87u_chung">
+                            View in wikipedia
+                        </a>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>Data protection</h5>
+                    </div>
+                    <div class="card-body">
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane" id="support">
