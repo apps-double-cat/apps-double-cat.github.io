@@ -73,7 +73,7 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Add require package to composer.json file: <code>apps-double-cat/laravel-shopify:
+                            <li>Add require package to composer.json file: <code>"appsdoublec/laravel-shopify":
                                 "package-version"</code></li>
                             <li>Add source package to repositories:</li>
                         </ul>
@@ -102,7 +102,7 @@
                                 Modified <code>.env</code> file in project:
                             </li>
                         </ul>
-                        <pre class="code-block">APP_NAME="My Shopify App Name" <br>APP_URL="https://{your-domain}" <br>SHOPIFY_API_KEY=API_KEY_FORM_SHOPIFY_PARTNER <br>SHOPIFY_SHARED_SECRET=SECRET_KEY_FORM_SHOPIFY_PARTNER <br>SHOPIFY_REDIRECT_URL="${APP_URL}/authorize" <br>SHOPIFY_PERMISSIONS=read_themes,write_themes, ... (Scope List Eg: read_products,write_products | 2 Themes scope required)</pre>
+                        <pre class="code-block">APP_NAME="My Shopify App Name" <br>APP_URL="https://{your-domain}"<br> <br>SHOPIFY_API_KEY=API_KEY_FORM_SHOPIFY_PARTNER <br>SHOPIFY_SHARED_SECRET=SECRET_KEY_FORM_SHOPIFY_PARTNER <br>SHOPIFY_REDIRECT_URL="${APP_URL}/authorize" <br>SHOPIFY_PERMISSIONS=read_themes,write_themes, ... (Scope List Eg: read_products,write_products | 2 Themes scope required) <br>SHOPIFY_SUDO_STORE="your-admin-shop.myshopify.com" <br>DC_SLACK_WEBHOOK_URL=</pre>
                         <ul>
                             <li>
                                 Run command clear config <code class="command-block">php artisan config:clear</code>
@@ -319,6 +319,11 @@
                                 - The function of this method is similar to the setting() method, But you need to add
                                 the shop_id parameter
                             </li>
+
+                            <li class="mb-1">
+                                <code>dc_slack(string $message = null): SlackService|null</code>
+                                - Send message to Slack (Need setup slack webhook)
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -446,6 +451,16 @@
                         <h5>Data protection</h5>
                     </div>
                     <div class="card-body">
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h5>Shopify app frontend performance</h5>
+                    </div>
+                    <div class="card-body">
+                        Shopify stipulates that other Frontend App will not reduce the store's performance by 10%.
+                        <a href="https://help.shopify.com/en/manual/online-store/store-speed/speed-report"
+                           target="_blank">View more </a>
                     </div>
                 </div>
             </div>
