@@ -171,6 +171,19 @@
                 </div>
                 <div class="card mt-5">
                     <div class="card-header">
+                        <h5>Install framework</h5>
+                    </div>
+                    <div class="card-body">
+                        Run <code class="command-block">php artisan doublec:install-framework</code> or add command to
+                        scripts field and in <code>post-autoload-dump</code> option:
+                        <div class="mt-3">
+                            <pre class="code-block">"scripts": {<br>&nbsp;"post-autoload-dump": [<br>&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;"@php artisan doublec:install-framework"<br>&nbsp;&nbsp;]<br>}</pre>
+                        </div>
+                        Then run <code class="command-block">composer update</code>
+                    </div>
+                </div>
+                <div class="card mt-5">
+                    <div class="card-header">
                         <h5>Test your app</h5>
                     </div>
                     <div class="card-body">
@@ -268,6 +281,31 @@
                                 </ul>
                             </li>
                         </ul>
+                    </div>
+                    <div class="card-header">
+                        <h5>Model trait</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            Each model has been added a trait so that you can optionally edit or add new methods
+                            (relationships, ranges, ...).
+                        </p>
+                        <p>
+                            The name of the feature will match the model name in the frame and add the suffix "Feature".
+                        </p>
+                        <p>
+                            For example, the <b>Store</b> model corresponds to <b>ShopTrait</b>.
+                        </p>
+                        <p>
+                            After running the command
+                            <code class="command-block">php artisan doublec:install-framework</code>,
+                            the properties will be published to the directory <code>app/DoubleC/Traits</code> and
+                            corresponding to the
+                            namespace <code>App\\DoubleC\\Trait</code>
+                        </p>
+                        <p>
+                            Use the --force option to override all the traits to default
+                        </p>
                     </div>
                 </div>
                 <div class="card mt-5">
